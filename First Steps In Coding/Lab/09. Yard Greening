@@ -1,0 +1,24 @@
+using System;
+
+namespace Grass
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double squareMeterCount = double.Parse(Console.ReadLine());
+
+            double pricePerSquareMeter = 7.61;
+            double discountPerc = 0.18;
+
+            double priceWithoutDiscount = squareMeterCount * pricePerSquareMeter;
+            double finalDiscount = priceWithoutDiscount * discountPerc;
+
+            double finalPrice = priceWithoutDiscount - finalDiscount;
+
+            Console.WriteLine($"The final price is: {finalPrice} lv.");
+            Console.WriteLine($"The discount is: {finalDiscount} lv.");
+
+        }
+    }
+}
