@@ -1,0 +1,20 @@
+using System;
+
+namespace ReadBook
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int pageNumber = int.Parse(Console.ReadLine());
+            double pageOneTime = double.Parse(Console.ReadLine());
+            int daysNumber = int.Parse(Console.ReadLine());
+
+            double totalTime = pageNumber / pageOneTime;
+            double Time = totalTime / daysNumber;
+
+            Console.WriteLine(Time);
+
+        }
+    }
+}
