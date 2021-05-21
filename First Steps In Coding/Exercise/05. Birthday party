@@ -1,0 +1,21 @@
+using System;
+
+namespace BirthdayCake
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double hallRental = double.Parse(Console.ReadLine());
+
+            double priceCake = hallRental * (20 / 100.0);
+            double priceDrinks = priceCake * ((100-45) / 100.0);
+            double priceAnimator = hallRental / 3.0;
+            double totalPrice = hallRental + priceCake + priceDrinks + priceAnimator;
+
+            Console.WriteLine(totalPrice);
+
+        }
+    }
+}
