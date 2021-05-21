@@ -1,0 +1,28 @@
+using System;
+
+namespace Campania
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int bakers = int.Parse(Console.ReadLine());
+            int cakes = int.Parse(Console.ReadLine());
+            int waffles = int.Parse(Console.ReadLine());
+            int pancakes = int.Parse(Console.ReadLine());
+
+            double cakesOneDay = cakes * 45;
+            double wafflesOneDay = waffles * 5.80;
+            double pancakesOneDay = pancakes * 3.20;
+
+            double oneDayTotall = (cakesOneDay + wafflesOneDay + pancakesOneDay) * bakers;
+            double sumOverCampania = oneDayTotall * days;
+            double expenres = 1 / 8.0;
+            double sumExpensisTotll = sumOverCampania - (expenres * sumOverCampania);
+
+            Console.WriteLine(sumExpensisTotll);
+
+        }
+    }
+}
