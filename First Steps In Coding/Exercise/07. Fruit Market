@@ -1,0 +1,31 @@
+using System;
+
+namespace Excellent_Result
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double priceStrawberry = double.Parse(Console.ReadLine());
+            double bananasKillo = double.Parse(Console.ReadLine());
+            double orangeKillo = double.Parse(Console.ReadLine());
+            double rasberrykillo = double.Parse(Console.ReadLine());
+            double strawberryKillo = double.Parse(Console.ReadLine());
+
+            double priceRasberries = priceStrawberry * 0.5;
+            double priceOrange = priceRasberries - (0.4 * priceRasberries);
+            double priceBanana = priceRasberries - (0.8 * priceRasberries);
+
+            
+            double sumRasberries = rasberrykillo * priceRasberries;
+            double sumOrange = orangeKillo * priceOrange;
+            double sumBananass = priceBanana * bananasKillo;
+            double sumStrawberry = strawberryKillo * priceStrawberry;
+
+            double total = sumRasberries + sumOrange + sumBananass + sumStrawberry;
+
+            Console.WriteLine(total.ToString("0.00"));
+
+        }
+    }
+}
