@@ -1,0 +1,23 @@
+using System;
+
+namespace AquariUm
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int aquaLenght = int.Parse(Console.ReadLine());
+            int aquaWidth = int.Parse(Console.ReadLine());
+            int aquaHeigh = int.Parse(Console.ReadLine());
+            double percent = double.Parse(Console.ReadLine());
+
+            double volumMetirs = (aquaLenght * aquaWidth * aquaHeigh) * 0.001;
+            double calculatePercent = percent * 0.01;
+
+            double result = volumMetirs * (1 - calculatePercent);
+
+            Console.WriteLine(result);
+
+        }
+    }
+}
