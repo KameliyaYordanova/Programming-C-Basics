@@ -1,0 +1,36 @@
+using System;
+
+namespace Godzila
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double movieBudget = double.Parse(Console.ReadLine());
+            int statistCount = int.Parse(Console.ReadLine());
+            double uniformPrice = double.Parse(Console.ReadLine());
+
+            double decoration = movieBudget * 0.1;
+            double uniformDiscount = 0;
+            if (statistCount > 150)
+            {
+                uniformDiscount = uniformPrice * 0.1;
+            }
+
+            double movieExpenses = decoration + statistCount * (uniformPrice - uniformDiscount);
+            
+            if (movieExpenses > movieBudget)
+            {
+                double needingMoney = movieExpenses - movieBudget;
+                Console.WriteLine($"Not enough money!");
+                Console.WriteLine($"Wingard needs {needingMoney:0.00} leva more.");
+            }
+            else
+            {
+                double remainingMoney = movieBudget - movieExpenses;
+                Console.WriteLine($"Action!");
+                Console.WriteLine($"Wingard starts filming with {remainingMoney:0.00} leva left.");
+            }
+        }
+    }
+}
