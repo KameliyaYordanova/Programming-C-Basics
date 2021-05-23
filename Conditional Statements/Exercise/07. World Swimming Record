@@ -1,0 +1,30 @@
+using System;
+
+namespace Recordpool
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double recordTime = double.Parse(Console.ReadLine());
+            double distance = double.Parse(Console.ReadLine());
+            double oneMeterSwimTime = double.Parse(Console.ReadLine());
+
+            double personalTimeWithoutWind = distance * oneMeterSwimTime;
+            double delayCount = Math.Floor(distance / 15.0);
+            double overallDelayTime = delayCount * 12.5;
+            double personalTime = personalTimeWithoutWind + overallDelayTime;
+
+            if (personalTime < recordTime)
+            {
+                
+                Console.WriteLine($"Yes, he succeeded! The new world record is {personalTime:0.00} seconds.");
+            }
+            else
+            {
+                double missingTime = personalTime - recordTime;
+                Console.WriteLine($"No, he failed! He was {missingTime:0.00} seconds slower.");
+            }
+        }
+    }
+}
