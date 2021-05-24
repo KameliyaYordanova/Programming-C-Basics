@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KamiTasks
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int nHour = int.Parse(Console.ReadLine());
+            string strWeekDay = Console.ReadLine();
+
+            bool bValidWeekDay =
+                strWeekDay == "Monday" || strWeekDay == "Tuesday" ||
+                strWeekDay == "Wednesday" || strWeekDay == "Thursday" ||
+                strWeekDay == "Friday" || strWeekDay == "Saturday";
+
+            bool bValidHour = nHour >= 10 && nHour <= 18;
+
+            if (bValidWeekDay && bValidHour)
+                Console.WriteLine("open");
+            else
+                Console.WriteLine("closed");
+        }
+    }
+}
