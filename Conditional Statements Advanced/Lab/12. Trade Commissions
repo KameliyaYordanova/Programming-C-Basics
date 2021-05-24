@@ -1,0 +1,94 @@
+using System;
+using System.IO;
+using System.Reflection;
+
+namespace Daysexcersice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string nameCity = Console.ReadLine();
+            double sales = double.Parse(Console.ReadLine());
+
+            bool lowSales = sales >= 0 && sales <= 500;
+            bool mediumSales = sales >= 500 && sales <= 1000;
+            bool highSales = sales >= 1000 && sales <= 10000;
+            bool hyperHighSales = sales > 10000;
+
+            double discountProcentage = 0;
+
+            if (nameCity == "Sofia")
+            {
+                if (lowSales)
+                {
+                    discountProcentage = 5;
+                }
+                else if (mediumSales)
+                {
+                    discountProcentage = 7;
+                }
+                else if (highSales)
+                {
+                    discountProcentage = 8;
+                }
+                else if (hyperHighSales)
+                {
+                    discountProcentage = 12;
+                }
+            }
+
+            else if (nameCity == "Varna")
+            {
+                if (lowSales)
+                {
+                    discountProcentage = 4.5;
+                }
+                else if (mediumSales)
+                {
+                    discountProcentage = 7.5;
+                }
+                else if (highSales)
+                {
+                    discountProcentage = 10;
+                }
+                else if (hyperHighSales)
+                {
+                    discountProcentage = 13;
+                }
+            }
+            else if (nameCity == "Plovdiv")
+            {
+                if (lowSales)
+                {
+                    discountProcentage = 5.5;
+                }
+                else if (mediumSales)
+                {
+                    discountProcentage = 8;
+                }
+                else if (highSales)
+                {
+                    discountProcentage = 12;
+                }
+                else if (hyperHighSales)
+                {
+                    discountProcentage = 14.5;
+                }
+
+            }
+            double comision = sales * discountProcentage / 100.0;
+
+            if (discountProcentage > 0)
+            {
+                Console.WriteLine($"{comision:F2}");
+            }
+            else
+            {
+                Console.WriteLine("error");
+            }
+        }
+
+    }
+}
+
