@@ -1,0 +1,22 @@
+using System;
+using System.Reflection;
+
+namespace Daysexcersice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double value = double.Parse(Console.ReadLine());
+
+            bool bValid = value >= -100 && value <= 100 && value != 0;
+
+            if (bValid)
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
+
+        }
+    }
+}
+
