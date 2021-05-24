@@ -1,0 +1,79 @@
+using System;
+
+namespace SkiHoliday
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            string roomType = Console.ReadLine();
+            string rating = Console.ReadLine();
+            int nights = days - 1;
+            double pricePerNight = 0;
+
+            if (roomType == "room for one person")
+            {
+                pricePerNight = 18;
+            }
+            else if (roomType == "apartment")
+            {
+                pricePerNight = 25;
+            }
+            else
+            {
+                pricePerNight = 35;
+            }
+            double disCountPercentage = 0;
+            if (roomType == "apartment")
+            {
+                if (days < 10)
+                {
+                    disCountPercentage = 30;
+                }
+                else if (days >= 10 && days <= 15)
+                {
+                    disCountPercentage = 35;
+                }
+                else if (days > 15)
+                {
+                    disCountPercentage = 50;
+                }
+            }
+            else if (roomType == "president apartment")
+            {
+                if (days < 10)
+                {
+                    disCountPercentage = 10;
+                }
+                else if (days >= 10 && days <= 15)
+                {
+                    disCountPercentage = 15;
+                }
+                else if (days > 15)
+                {
+                    disCountPercentage = 20;
+                }
+
+            }
+
+            double totalPrice = nights * pricePerNight;
+            if (disCountPercentage != 0)
+            {
+                totalPrice = totalPrice * (100 - disCountPercentage) / 100.0;
+            }
+            if (rating == "positive")
+            {
+                totalPrice = totalPrice * 1.25;
+            }
+            else
+            {
+                totalPrice = totalPrice * 0.9;
+            }
+
+            Console.WriteLine($"{totalPrice:F2}");
+
+
+        }
+    }
+}
