@@ -1,0 +1,38 @@
+using System;
+using System.IO;
+using System.Reflection;
+
+namespace Daysexcersice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string typeofYear = Console.ReadLine();
+            int p = int.Parse(Console.ReadLine());
+            int h = int.Parse(Console.ReadLine());
+
+            double weekendgamesinSofia = (48 - h) * 3.0 / 4.0;
+            double holidaygamesinSofia = p * 2.0 / 3.0;
+            double normalgames = weekendgamesinSofia + holidaygamesinSofia + h;
+
+
+            if (typeofYear == "normal")
+            {
+                Console.WriteLine($"{Math.Floor(normalgames)}");
+            }
+
+
+            else if (typeofYear == "leap")
+
+            {
+                double leapgames = normalgames + normalgames * 0.15;
+                Console.WriteLine($"{Math.Floor(leapgames)}");
+
+            }
+
+        }
+    }
+}
+
