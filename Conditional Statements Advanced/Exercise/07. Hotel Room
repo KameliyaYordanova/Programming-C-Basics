@@ -1,0 +1,56 @@
+using System;
+using System.Security.Cryptography;
+
+namespace Travelling
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string vacantioToTime = Console.ReadLine();
+            int nightToStay = int.Parse(Console.ReadLine());
+
+            double totalPriceForStudio = 0;
+            double totalPriceForApp = 0;
+
+            if (vacantioToTime == "May" || vacantioToTime == "October")
+            {
+                totalPriceForStudio = nightToStay * 50;
+                totalPriceForApp = nightToStay * 65;
+
+                if (nightToStay > 7 && nightToStay <= 14)
+                {
+                    totalPriceForStudio *= 0.95;
+                }
+                else if (nightToStay > 14)
+                {
+                    totalPriceForStudio *= 0.70;
+                }
+            }
+            else if (vacantioToTime == "June" || vacantioToTime == "September")
+            {
+                totalPriceForStudio = nightToStay * 75.20;
+                totalPriceForApp = nightToStay * 68.70;
+
+                if (nightToStay > 14)
+                {
+                    totalPriceForStudio *= 0.80;
+                }
+            }
+            else if (vacantioToTime == "July" || vacantioToTime == "August")
+            {
+                totalPriceForStudio = nightToStay * 76;
+                totalPriceForApp = nightToStay * 77;
+            }
+            if (nightToStay > 14)
+            {
+                totalPriceForApp *= 0.90;
+            }
+
+            Console.WriteLine($"Apartment: {totalPriceForApp:f2} lv.");
+            Console.WriteLine($"Studio: {totalPriceForStudio:f2} lv.");
+        }
+
+
+    }
+}
