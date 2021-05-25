@@ -1,0 +1,69 @@
+using System;
+
+namespace cinemaSummer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int degrees = int.Parse(Console.ReadLine());
+            string dayNight = Console.ReadLine();
+            string outfit = "";
+            string shoes = "";
+
+            if (degrees >= 10 && degrees <= 18)
+            {
+                if (dayNight == "Morning")
+                {
+                    outfit = "Sweatshirt";
+                    shoes = "Sneakers";
+                }
+                else if (dayNight == "Afternoon" || dayNight == "Evening")
+                {
+                    outfit = "Shirt";
+                    shoes = "Moccasins";
+                }
+            }
+            else if (degrees > 18 && degrees <= 24)
+            {
+                if (dayNight == "Morning")
+                {
+                    outfit = "Shirt";
+                    shoes = "Moccasins";
+                }
+                else if (dayNight == "Afternoon")
+                {
+                    outfit = "T-Shirt";
+                    shoes = "Sandals";
+                }
+                else if (dayNight == "Evening")
+                {
+                    outfit = "Shirt";
+                    shoes = "Moccasins";
+                }
+            }
+            else if (degrees >= 25)
+            {
+                if (dayNight == "Morning")
+                {
+                    outfit = "T-Shirt";
+                    shoes = "Sandals";
+                }
+                else if (dayNight == "Afternoon")
+                {
+                    outfit = "Swim Suit";
+                    shoes = "Barefoot";
+
+                }
+                else if (dayNight == "Evening")
+                {
+                    outfit = "Shirt";
+                    shoes = "Moccasins";
+                }
+            }
+            Console.WriteLine($"It's {degrees} degrees, get your {outfit} and {shoes}.");
+
+        }
+
+    }
+}
