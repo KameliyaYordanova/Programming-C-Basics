@@ -1,0 +1,43 @@
+using System;
+
+namespace CleverLili
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int age = int.Parse(Console.ReadLine());
+            double washingMashine = double.Parse(Console.ReadLine());
+            double toyPrice = double.Parse(Console.ReadLine());
+
+            int toysCounter = 0;
+            double savedMoney = 0;
+
+            for (int i = 1; i <= age; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    savedMoney += i * 5;
+                    savedMoney--;
+                }
+                else
+                {
+                    toysCounter++;   // нечетно да се увеличи с единица 
+                }
+            }
+
+            savedMoney += toysCounter * toyPrice;
+
+            if (savedMoney >= washingMashine)
+            {
+                double diff = savedMoney - washingMashine;
+                Console.WriteLine($"Yes! {diff:F2}");
+            }
+            else
+            {
+                double diff = washingMashine - savedMoney;
+                Console.WriteLine($"No! {diff:F2}");
+            }
+        }
+    }
+}
