@@ -1,0 +1,26 @@
+using System;
+using System.Diagnostics;
+
+namespace readWords
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            int sum = 0;
+
+            while (true)
+            {
+                int current = int.Parse(Console.ReadLine());
+                sum += current;
+
+                if (sum >= number)
+                {
+                    Console.WriteLine(sum);
+                    break;
+                }
+            }
+        }
+    }
+}
