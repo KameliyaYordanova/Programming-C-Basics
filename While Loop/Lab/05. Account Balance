@@ -1,0 +1,35 @@
+using System;
+using System.Diagnostics;
+
+namespace readWords
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double total = 0;
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (input == "NoMoreMoney")
+                {
+                    break;
+                }
+                double number = double.Parse(input);
+
+                if (number < 0)
+                {
+                    Console.WriteLine("Invalid operation!");
+                    break;
+                }
+
+                total += number;
+                Console.WriteLine($"Increase: {number:F2}");
+            }
+            Console.WriteLine($"Total: {total:F2}");
+
+        }
+    }
+}
