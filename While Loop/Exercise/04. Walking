@@ -1,0 +1,43 @@
+using System;
+using System.Diagnostics;
+using System.Globalization;
+
+namespace readWords
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int nStepsSum = 0;
+            bool bGoingHome = false;
+            int nStepsTarget = 10000;
+
+            while (true)
+            {
+                string strCommand = Console.ReadLine();
+                if (strCommand == "Going home")
+                {
+                    bGoingHome = true;
+                }
+                else
+                {
+                    nStepsSum += int.Parse(strCommand);
+
+                    if (nStepsSum >= nStepsTarget)
+                    {
+                        int nStepsOverTargetCount = nStepsSum - nStepsTarget;
+                        Console.WriteLine("Goal reached! Good job!");
+                        Console.WriteLine($"{nStepsOverTargetCount} steps over the goal!");
+                        break;
+                    }
+                    else if (bGoingHome)
+                    {
+                        int nStepsUnderTargetCount = nStepsTarget - nStepsSum;
+                        Console.WriteLine($"{nStepsUnderTargetCount} more steps to reach goal.");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
