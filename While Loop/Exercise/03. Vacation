@@ -1,0 +1,56 @@
+using System;
+using System.Globalization;
+using System.Runtime.InteropServices.ComTypes;
+
+namespace Library
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double tripPrice = double.Parse(Console.ReadLine());
+            double startingMoney = double.Parse(Console.ReadLine());
+
+            int totalDays = 0;
+            int daysSpend = 0;
+
+            while (true)
+            {
+                string action = Console.ReadLine();
+                double currentMoney = double.Parse(Console.ReadLine());
+                totalDays++;
+
+                if (action == "spend")
+                {
+                    daysSpend++;
+                    startingMoney -= currentMoney;
+
+                    if (startingMoney < 0)
+                    {
+                        startingMoney = 0;
+                    }
+                    if (daysSpend == 5)
+                    {
+                        Console.WriteLine($"You can't save the money.");
+                        Console.WriteLine($"{totalDays}");
+                        break;
+                    }
+                }
+                else if (action == "save")
+                {
+                    startingMoney += currentMoney;
+                    daysSpend = 0;
+                }
+
+                if (startingMoney >= tripPrice)
+                {
+                    Console.WriteLine($"You saved the money for {totalDays} days.");
+                    break;
+                }
+
+
+            }
+
+        }
+    }
+}
