@@ -1,0 +1,47 @@
+using System;
+
+namespace Coins
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int cakeWidth = int.Parse(Console.ReadLine());
+            int cakeLenght = int.Parse(Console.ReadLine());
+
+            int cakeTotalSize = cakeWidth * cakeLenght;
+            int sliceCount = 0;
+
+            string comand = Console.ReadLine();
+
+            while (comand != "STOP")
+            {
+                int cakeSize = int.Parse(comand);
+                cakeTotalSize -= cakeSize;
+                sliceCount++;
+
+                if (cakeTotalSize <= 0)
+                {
+                    break;
+                }
+
+                comand = Console.ReadLine();
+            }
+
+            string result = string.Empty;
+
+            if (cakeTotalSize > 0)
+            {
+                result = $"{cakeTotalSize} pieces are left.";
+            }
+            else
+            {
+                result = $"No more cake left! You need {Math.Abs(cakeTotalSize)} pieces more.";
+            }
+
+            Console.WriteLine(result);
+        }
+
+    }
+}
