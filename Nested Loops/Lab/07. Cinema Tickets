@@ -1,0 +1,77 @@
+using Microsoft.Win32.SafeHandles;
+using System;
+using System.Net.Http.Headers;
+using System.Security.Cryptography;
+
+namespace Clock
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int totalStandardTickets = 0;
+            int totalStudentTickets = 0;
+            int totalKidTickets = 0;
+
+            while (true)
+            {
+
+                string movieName = Console.ReadLine();
+
+                if (movieName == "Finish")
+                {
+                    break;
+                }
+
+                int capasity = int.Parse(Console.ReadLine());
+
+                int movieTicketsSold = 0;
+
+                while (true)
+                {
+                    string ticketType = Console.ReadLine();
+
+                    if (ticketType == "End")
+                    {
+                        break;
+                    }
+
+                    if (ticketType == "standard")
+                    {
+                        totalStandardTickets++;
+                    }
+                    else if (ticketType == "student")
+                    {
+                        totalStudentTickets++;
+                    }
+                    else if (ticketType == "kid")
+                    {
+                        totalKidTickets++;
+                    }
+
+                    movieTicketsSold++;
+
+                    if (movieTicketsSold == capasity)
+                    {
+                        break;
+                    }
+                }
+
+
+                double filledHallPercentage = (movieTicketsSold * 1.0 / capasity) * 100;
+                Console.WriteLine($"{movieName} - {filledHallPercentage:F2}% full.");
+            }
+
+            int totalTickets = totalKidTickets + totalStudentTickets + totalStandardTickets;
+
+            double studentTicketsPercentage = totalStudentTickets * 1.0 / totalTickets * 100;
+            double standardTicketsPercentage = totalStandardTickets * 1.0 / totalTickets * 100;
+            double kidTicketsPercentage = totalKidTickets * 1.0 / totalTickets * 100;
+
+            Console.WriteLine($"Total tickets: {totalTickets}");
+            Console.WriteLine($"{studentTicketsPercentage:F2}% student tickets.");
+            Console.WriteLine($"{standardTicketsPercentage:F2}% standard tickets.");
+            Console.WriteLine($"{kidTicketsPercentage:F2}% kids tickets.");
+        }
+    }
+}
