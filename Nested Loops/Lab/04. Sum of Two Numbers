@@ -1,0 +1,45 @@
+using System;
+using System.Net.Http.Headers;
+
+namespace Clock
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int startNumber = int.Parse(Console.ReadLine());
+            int endNumber = int.Parse(Console.ReadLine());
+            int magicNumber = int.Parse(Console.ReadLine());
+
+            int combinationCounter = 0;
+            bool found = false;
+
+            for (int x1 = startNumber; x1 <= endNumber; x1++)
+            {
+                for (int x2 = startNumber; x2 <= endNumber; x2++)
+                {
+                    int sum = x1 + x2;
+                    combinationCounter++;
+
+                    if (sum == magicNumber)
+                    {
+                        Console.WriteLine($"Combination N:{combinationCounter} ({x1} + {x2} = {sum})");
+
+                        found = true;
+
+                        break;
+                    }
+                }
+                if (found)
+                {
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine($"{combinationCounter} combinations - neither equals {magicNumber}");
+            }
+        }
+    }
+}
