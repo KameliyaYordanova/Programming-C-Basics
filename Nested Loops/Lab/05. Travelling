@@ -1,0 +1,36 @@
+using Microsoft.Win32.SafeHandles;
+using System;
+using System.Net.Http.Headers;
+using System.Security.Cryptography;
+
+namespace Clock
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                string destination = Console.ReadLine();
+
+                if (destination == "End")
+                {
+                    break;
+                }
+
+                double requiretBudjet = double.Parse(Console.ReadLine());
+                double savings = 0;
+
+                while (savings < requiretBudjet)
+                {
+                    double sum = double.Parse(Console.ReadLine());
+
+                    savings += sum;
+                }
+
+                Console.WriteLine($"Going to {destination}!");
+            }
+
+        }
+    }
+}
