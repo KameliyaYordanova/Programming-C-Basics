@@ -1,0 +1,44 @@
+using System;
+
+namespace _01.Pyramid
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int juryCount = int.Parse(Console.ReadLine());
+
+            double studentsFinalAssment = 0;
+            int presetationsCount = 0;
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (input == "Finish")
+                {
+                    break;
+                }
+
+                presetationsCount++;
+
+                double presentationAverage = 0;
+                for (int i = 0; i < juryCount; i++)
+                {
+                    double juryGrade = double.Parse(Console.ReadLine());
+
+                    presentationAverage += juryGrade;
+                }
+
+                presentationAverage /= juryCount;
+                studentsFinalAssment += presentationAverage;
+
+                Console.WriteLine($"{input} - {presentationAverage:F2}.");
+            }
+
+            studentsFinalAssment /= presetationsCount;
+
+            Console.WriteLine($"Student's final assessment is {studentsFinalAssment:F2}.");
+        }
+    }
+}
